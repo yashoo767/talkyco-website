@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talkyco - Pure Ayurvedic Herbal Products</title>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-dark:  #2d5a27;
+      --green-mid:   #4a8c3f;
+      --green-light: #7bc67e;
+      --gold:        #c9922a;
+      --gold-light:  #f0c060;
+      --cream:       #fdf6e3;
+      --brown:       #5c3d1e;
+      --brown-light: #a0714a;
+      --white:       #ffffff;
+      --gray-light:  #f5f5f0;
+      --gray:        #888;
+      --shadow:      0 4px 24px rgba(0,0,0,0.10);
+      --radius:      12px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--cream);
+      color: #2c2c2c;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Top Bar ── */
+    .top-bar {
+      background: var(--green-dark);
+      color: var(--gold-light);
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Navbar ── */
+    nav {
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      gap: 16px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--green-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .logo-text h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--green-dark);
+      letter-spacing: -0.5px;
+    }
+    .logo-text span {
+      font-size: 11px;
+      color: var(--brown-light);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .nav-links a {
+      color: #444;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green-dark); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .btn-cart {
+      position: relative;
+      background: var(--green-dark);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    .btn-cart:hover { background: var(--green-mid); }
+    .cart-count {
+      background: var(--gold);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #1a3d16 0%, #2d5a27 40%, #4a8c3f 100%);
+      color: white;
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(201,146,42,0.3);
+      border: 1px solid var(--gold-light);
+      color: var(--gold-light);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .hero h2 {
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h2 span { color: var(--gold-light); }
+    .hero p {
+      font-size: 17px;
+      opacity: 0.85;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold);
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-primary:hover { background: #b5801e; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.5);
+      padding: 14px 30px;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .btn-outline:hover { border-color: white; }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--gold-light);
+    }
+    .stat-label {
+      font-size: 12px;
+      opacity: 0.75;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-card-stack {
+      position: relative;
+      width: 320px;
+      height: 380px;
+    }
+    .hero-card {
+      position: absolute;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 24px;
+      color: white;
+    }
+    .hero-card.main {
+      bottom: 0; left: 0; right: 0;
+      z-index: 2;
+    }
+    .hero-card.back {
+      top: 0; left: 20px; right: -20px;
+      z-index: 1;
+      opacity: 0.6;
+      transform: rotate(3deg);
+    }
+    .card-product-icon { font-size: 52px; margin-bottom: 12px; }
+    .card-product-name { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .card-product-desc { font-size: 13px; opacity: 0.8; margin-bottom: 14px; }
+    .card-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      background: rgba(201,146,42,0.35);
+      border: 1px solid rgba(201,146,42,0.6);
+      color: var(--gold-light);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .card-price {
+      margin-top: 12px;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--gold-light);
+    }
+
+    /* ── Trust Bar ── */
+    .trust-bar {
+      background: var(--white);
+      border-bottom: 1px solid #e8e2d6;
+    }
+    .trust-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+    }
+    .trust-item span:first-child { font-size: 22px; }
+
+    /* ── Section ── */
+    section { padding: 64px 24px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .section-tag {
+      display: inline-block;
+      background: rgba(75,140,63,0.12);
+      color: var(--green-dark);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .section-header h2 {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .section-header p {
+      color: var(--gray);
+      font-size: 16px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── Category Filter ── */
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      padding: 9px 20px;
+      border-radius: 24px;
+      border: 2px solid #ddd;
+      background: white;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: #555;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+      color: white;
+    }
+
+    /* ── Product Grid ── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .product-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.14);
+    }
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--gold);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      z-index: 1;
+    }
+    .product-badge.new { background: var(--green-mid); }
+    .product-badge.bestseller { background: #e05a2b; }
+    .product-img {
+      height: 200px;
+      background: linear-gradient(135deg, #e8f5e2, #f0f7ee);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 72px;
+      position: relative;
+    }
+    .wishlist-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      transition: transform 0.15s;
+    }
+    .wishlist-btn:hover { transform: scale(1.15); }
+    .product-body { padding: 18px; }
+    .product-category {
+      font-size: 11px;
+      color: var(--green-mid);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .product-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .product-desc {
+      font-size: 13px;
+      color: var(--gray);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .product-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .product-tag {
+      background: #edf7ec;
+      color: var(--green-dark);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 8px;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .product-price {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--brown);
+    }
+    .product-price .original {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: line-through;
+      font-weight: 400;
+      margin-right: 4px;
+    }
+    .btn-add {
+      background: var(--green-dark);
+      color: white;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 22px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-add:hover { background: var(--green-mid); }
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      color: #888;
+    }
+    .stars { color: #f0b429; font-size: 14px; }
+
+    /* ── Why Choose Us ── */
+    .why-section { background: var(--green-dark); color: white; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 28px;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .why-card:hover { background: rgba(255,255,255,0.14); }
+    .why-icon { font-size: 40px; margin-bottom: 14px; }
+    .why-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--gold-light); }
+    .why-card p { font-size: 13px; opacity: 0.8; line-height: 1.5; }
+
+    /* ── Ingredients ── */
+    .ingredients-section { background: var(--gray-light); }
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 18px;
+    }
+    .ingredient-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 20px 12px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
+    }
+    .ingredient-card:hover { transform: translateY(-3px); }
+    .ingredient-icon { font-size: 36px; margin-bottom: 8px; }
+    .ingredient-name { font-size: 14px; font-weight: 700; color: var(--brown); margin-bottom: 4px; }
+    .ingredient-benefit { font-size: 11px; color: var(--gray); }
+
+    /* ── Testimonials ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 12px;
+      left: 20px;
+      font-size: 60px;
+      color: var(--green-light);
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+    .testimonial-text { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 18px; padding-top: 20px; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .author-name { font-weight: 700; font-size: 14px; color: var(--brown); }
+    .author-location { font-size: 12px; color: var(--gray); }
+    .testimonial-rating { color: #f0b429; font-size: 13px; margin-bottom: 10px; }
+
+    /* ── Newsletter ── */
+    .newsletter-section {
+      background: linear-gradient(135deg, var(--gold) 0%, #a07020 100%);
+      color: white;
+      text-align: center;
+      padding: 56px 24px;
+    }
+    .newsletter-section h2 { font-size: 30px; font-weight: 800; margin-bottom: 10px; }
+    .newsletter-section p { opacity: 0.9; margin-bottom: 28px; font-size: 15px; }
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .newsletter-form input {
+      flex: 1;
+      min-width: 220px;
+      padding: 14px 20px;
+      border-radius: 30px;
+      border: none;
+      font-size: 14px;
+      outline: none;
+    }
+    .newsletter-form button {
+      background: var(--green-dark);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .newsletter-form button:hover { background: #1a3d16; }
+
+    /* ── Footer ── */
+    footer {
+      background: #1a1a1a;
+      color: #ccc;
+      padding: 56px 24px 24px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand h3 { color: white; font-size: 20px; margin-bottom: 8px; }
+    .footer-brand p { font-size: 13px; line-height: 1.6; margin-bottom: 16px; }
+    .footer-socials { display: flex; gap: 10px; }
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .social-btn:hover { border-color: var(--gold-light); }
+    .footer-col h4 { color: white; font-size: 15px; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 13px; color: #999; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+      color: #666;
+    }
+    .certifications { display: flex; gap: 12px; }
+    .cert-badge {
+      background: #2a2a2a;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: var(--gold-light);
+    }
+
+    /* ── Cart Sidebar ── */
+    .cart-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 2000;
+    }
+    .cart-overlay.open { display: block; }
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 400px;
+      height: 100vh;
+      background: white;
+      z-index: 2001;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s ease;
+      box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+    }
+    .cart-sidebar.open { right: 0; }
+    .cart-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-header h3 { font-size: 18px; font-weight: 700; color: var(--brown); }
+    .cart-close {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #888;
+    }
+    .cart-items { flex: 1; overflow-y: auto; padding: 16px 24px; }
+    .cart-empty {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--gray);
+    }
+    .cart-empty div { font-size: 52px; margin-bottom: 12px; }
+    .cart-item {
+      display: flex;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid #f0f0f0;
+      align-items: center;
+    }
+    .cart-item-icon {
+      width: 60px;
+      height: 60px;
+      background: #f0f7ee;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    .cart-item-info { flex: 1; }
+    .cart-item-name { font-size: 14px; font-weight: 600; color: var(--brown); margin-bottom: 4px; }
+    .cart-item-price { font-size: 13px; color: var(--gray); }
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .qty-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      background: white;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: background 0.15s;
+    }
+    .qty-btn:hover { background: #f0f7ee; }
+    .qty-num { font-size: 14px; font-weight: 600; min-width: 20px; text-align: center; }
+    .cart-item-remove {
+      background: none;
+      border: none;
+      color: #ccc;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .cart-item-remove:hover { color: #e05a2b; }
+    .cart-footer {
+      padding: 20px 24px;
+      border-top: 1px solid #eee;
+      background: var(--gray-light);
+    }
+    .cart-subtotal {
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+    .cart-subtotal.total {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--brown);
+      padding-top: 10px;
+      border-top: 1px solid #ddd;
+      margin-top: 6px;
+    }
+    .btn-checkout {
+      width: 100%;
+      background: var(--green-dark);
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: background 0.2s;
+    }
+    .btn-checkout:hover { background: var(--green-mid); }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--green-dark);
+      color: white;
+      padding: 13px 24px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 3000;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero h2 { font-size: 34px; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero h2 { font-size: 28px; }
+      .cart-sidebar { width: 100%; right: -100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+  Free Shipping on Orders Above ₹499 &nbsp;|&nbsp; 100% Organic &amp; Ayurvedic Certified &nbsp;|&nbsp; COD Available
+</div>
+
+<!-- Navbar -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-icon">🌿</div>
+      <div class="logo-text">
+        <h1>Talkyco</h1>
+        <span>Pure Ayurveda</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#ingredients">Ingredients</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-cart" onclick="toggleCart()">
+        🛒 Cart
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Ancient Wisdom, Modern Healing</div>
+      <h2>Pure Herbal<br><span>Pain Relief</span><br>From Nature</h2>
+      <p>Experience the power of authentic Ayurvedic formulations. Our certified organic oils and herbal medicines bring centuries of healing knowledge to your doorstep.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+        <button class="btn-outline" onclick="document.getElementById('why-us').scrollIntoView({behavior:'smooth'})">Learn More</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">50K+</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Organic</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">25+</div>
+          <div class="stat-label">Products</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-stack">
+        <div class="hero-card back">
+          <div class="card-product-icon">🌿</div>
+          <div class="card-product-name">Ashwagandha Capsules</div>
+        </div>
+        <div class="hero-card main">
+          <div class="card-product-icon">🫙</div>
+          <div class="card-product-name">Mahanarayan Pain Oil</div>
+          <div class="card-product-desc">Deep tissue relief with 32 Ayurvedic herbs</div>
+          <div class="card-tags">
+            <span class="tag">Organic</span>
+            <span class="tag">Ayurvedic</span>
+            <span class="tag">GMP Certified</span>
+          </div>
+          <div class="card-price">₹449</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Bar -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><span>🌱</span><span>100% Organic Certified</span></div>
+    <div class="trust-item"><span>🏛</span><span>Ayurvedic GMP Certified</span></div>
+    <div class="trust-item"><span>🚚</span><span>Free Shipping Above ₹499</span></div>
+    <div class="trust-item"><span>🔄</span><span>30-Day Easy Returns</span></div>
+    <div class="trust-item"><span>🔒</span><span>Secure Payments</span></div>
+    <div class="trust-item"><span>🌾</span><span>No Chemicals, No Preservatives</span></div>
+  </div>
+</div>
+
+<!-- Products Section -->
+<section id="products">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Our Products</div>
+      <h2>Handcrafted Herbal Remedies</h2>
+      <p>Every product is carefully formulated using traditional Ayurvedic recipes and the finest organic ingredients</p>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProducts('all', this)">All Products</button>
+      <button class="filter-btn" onclick="filterProducts('oils', this)">Pain Relief Oils</button>
+      <button class="filter-btn" onclick="filterProducts('capsules', this)">Herbal Capsules</button>
+      <button class="filter-btn" onclick="filterProducts('syrup', this)">Herbal Syrups</button>
+      <button class="filter-btn" onclick="filterProducts('powder', this)">Herbal Powders</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section id="why-us" class="why-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag" style="background:rgba(255,255,255,0.15);color:var(--gold-light)">Why Talkyco</div>
+      <h2 style="color:white">Rooted in Ancient Wisdom</h2>
+      <p style="color:rgba(255,255,255,0.75)">We blend the knowledge of 5000-year-old Ayurveda with modern quality standards</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🌱</div>
+        <h3>100% Organic</h3>
+        <p>All herbs sourced directly from certified organic farms with zero chemical inputs</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔬</div>
+        <h3>Lab Tested</h3>
+        <p>Every batch undergoes rigorous third-party testing for purity, potency, and safety</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📜</div>
+        <h3>Classical Formulas</h3>
+        <p>Authentic recipes from ancient Charaka Samhita and Sushruta Samhita texts</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏭</div>
+        <h3>GMP Certified</h3>
+        <p>Manufactured in WHO-GMP certified facilities under expert Ayurvedic physicians</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌿</div>
+        <h3>No Additives</h3>
+        <p>Absolutely no chemicals, preservatives, artificial colors or synthetic fragrances</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💚</div>
+        <h3>Vegan Friendly</h3>
+        <p>All our products are plant-based, cruelty-free and completely vegan certified</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Ingredients -->
+<section id="ingredients" class="ingredients-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Key Ingredients</div>
+      <h2>Nature's Most Powerful Healers</h2>
+      <p>We use only the purest, most potent herbs sourced from their native regions across India</p>
+    </div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card"><div class="ingredient-icon">🌰</div><div class="ingredient-name">Ashwagandha</div><div class="ingredient-benefit">Stress & Inflammation</div></div>
+      <div class="ingredient-card"><div class="ingredient-icon">🍋</div><div class="ingredient-name">Turmeric</div><div class="ingredient-benefit">Anti-inflammatory</div></div>
+      <div class="ingredient-card"><div class="ingredient-icon">🌿</div><div class="ingredient-name">Nirgundi</div><div class="ingredient-benefit">Joint Pain Relief</div></div>
+      <div class="ingredient-card"><div class="ingredient-icon">🌱</div><div class="ingredient-name">Shallaki</div><div class="ingredient-benefit">Arthritis Care</div></div>
+      <div class="ingredient-card"><div class="ingredient-icon">🫚</div><div class="ingredient-name">Til Oil</div><div class="ingredient-benefit">Deep Absorption</div></div>
+      <div class="ingredient-card"><div class="ingredient-icon">🍃</div><div class="ingredient-name">Eucalyptus</div><div class="ingredient-benefit">Cooling Relief</div></div>
+      <div class="ingredient-card"><div class="ingredient-icon">🌺</div><div class="ingredient-name">Mahanarayan</div><div class="ingredient-benefit">Muscle Recovery</div></div>
+      <div class="ingredient-card"><div class="ingredient-icon">🌾</div><div class="ingredient-name">Triphala</div><div class="ingredient-benefit">Digestive Health</div></div>
+      <div class="ingredient-card"><div class="ingredient-icon">🍫</div><div class="ingredient-name">Guggul</div><div class="ingredient-benefit">Bone & Joint</div></div>
+      <div class="ingredient-card"><div class="ingredient-icon">🌻</div><div class="ingredient-name">Shatavari</div><div class="ingredient-benefit">Hormonal Balance</div></div>
+      <div class="ingredient-card"><div class="ingredient-icon">🫙</div><div class="ingredient-name">Brahmi</div><div class="ingredient-benefit">Nervous System</div></div>
+      <div class="ingredient-card"><div class="ingredient-icon">🌶</div><div class="ingredient-name">Trikatu</div><div class="ingredient-benefit">Pain Management</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="reviews">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Customer Reviews</div>
+      <h2>Real Stories, Real Relief</h2>
+      <p>Over 50,000 customers trust Talkyco for their natural health journey</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-rating">★★★★★</div>
+        <p class="testimonial-text">I've been suffering from knee pain for 5 years. After using Talkyco's Joint Relief Oil for just 3 weeks, the difference is remarkable. No side effects and completely natural!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">R</div>
+          <div><div class="author-name">Rajesh Sharma</div><div class="author-location">Delhi, India</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-rating">★★★★★</div>
+        <p class="testimonial-text">The Ashwagandha capsules transformed my energy levels. I used to feel exhausted all day, now I'm active and focused. Pure quality, no artificial fillers!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">P</div>
+          <div><div class="author-name">Priya Nair</div><div class="author-location">Bangalore, India</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-rating">★★★★★</div>
+        <p class="testimonial-text">My father has arthritis and the Mahanarayan Oil has been a blessing. Even our family doctor noticed the improvement. We've switched to Talkyco completely.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div><div class="author-name">Ananya Gupta</div><div class="author-location">Mumbai, India</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-rating">★★★★★</div>
+        <p class="testimonial-text">Fast delivery, beautiful packaging, and the products actually work! The Triphala powder has improved my digestion tremendously. Highly recommend!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <div><div class="author-name">Suresh Reddy</div><div class="author-location">Hyderabad, India</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-rating">★★★★★</div>
+        <p class="testimonial-text">Best herbal products I've ever used. The back pain oil gives instant warming relief. I've recommended Talkyco to all my yoga students!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div><div class="author-name">Meena Joshi</div><div class="author-location">Pune, India</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-rating">★★★★★</div>
+        <p class="testimonial-text">I was skeptical at first but the results are undeniable. Neck pain gone, better sleep, more energy. This is real Ayurveda done right. Will order again!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">V</div>
+          <div><div class="author-name">Vikram Patel</div><div class="author-location">Ahmedabad, India</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<div class="newsletter-section">
+  <h2>Join the Natural Healing Journey</h2>
+  <p>Subscribe for exclusive offers, Ayurvedic tips, and new product launches</p>
+  <div class="newsletter-form">
+    <input type="email" placeholder="Enter your email address" id="emailInput" />
+    <button onclick="subscribeNewsletter()">Subscribe</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🌿 Talkyco</h3>
+        <p>Bridging the ancient wisdom of Ayurveda with modern wellness needs. Our mission is to make pure, effective herbal remedies accessible to everyone across India and beyond.</p>
+        <div class="footer-socials">
+          <div class="social-btn">📘</div>
+          <div class="social-btn">📸</div>
+          <div class="social-btn">🐦</div>
+          <div class="social-btn">▶</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#products">All Products</a></li>
+          <li><a href="#why-us">About Talkyco</a></li>
+          <li><a href="#ingredients">Ingredients</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">📞 1800-XXX-XXXX</a></li>
+          <li><a href="#">✉ hello@talkyco.com</a></li>
+          <li><a href="#">📍 India</a></li>
+          <li><a href="#">🕐 Mon–Sat 9am–6pm</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Talkyco. All rights reserved. All products are Ayurvedic formulations.</span>
+      <div class="certifications">
+        <span class="cert-badge">ISO 9001</span>
+        <span class="cert-badge">GMP Certified</span>
+        <span class="cert-badge">Organic India</span>
+        <span class="cert-badge">FSSAI</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Cart Sidebar -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div>🛒</div>
+      <p>Your cart is empty</p>
+      <p style="font-size:12px;margin-top:6px">Add some herbal goodness!</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">₹0</span></div>
+    <div class="cart-subtotal"><span>Shipping</span><span id="cartShipping">₹49</span></div>
+    <div class="cart-subtotal total"><span>Total</span><span id="cartTotal">₹0</span></div>
+    <button class="btn-checkout" onclick="checkout()">Proceed to Checkout →</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // Products Data
+  const products = [
+    { id:1, name:"Mahanarayan Pain Relief Oil", category:"oils", icon:"🫙", price:449, original:599, badge:"bestseller", rating:4.8, reviews:1240, desc:"32-herb formulation for deep joint & muscle pain relief", tags:["Joint Pain","Arthritis","100ml"] },
+    { id:2, name:"Nirgundi Back & Spine Oil", category:"oils", icon:"💆", price:399, original:499, badge:"", rating:4.7, reviews:890, desc:"Specially crafted for lower back pain, sciatica & spine issues", tags:["Back Pain","Sciatica","100ml"] },
+    { id:3, name:"Turmerex Anti-Inflammatory Oil", category:"oils", icon:"🌟", price:349, original:449, badge:"new", rating:4.6, reviews:450, desc:"Curcumin-rich turmeric & sesame oil blend for instant relief", tags:["Swelling","Anti-Inflam","60ml"] },
+    { id:4, name:"Muscle Recovery Sports Oil", category:"oils", icon:"💪", price:499, original:649, badge:"bestseller", rating:4.9, reviews:670, desc:"Post-workout pain relief with camphor, eucalyptus & ashwagandha", tags:["Sports","Recovery","100ml"] },
+    { id:5, name:"Ashwagandha Immunity Capsules", category:"capsules", icon:"💊", price:299, original:399, badge:"bestseller", rating:4.8, reviews:2100, desc:"Pure KSM-66 Ashwagandha for stress relief and vitality boost", tags:["Stress","Immunity","60 caps"] },
+    { id:6, name:"Shallaki Joint Care Capsules", category:"capsules", icon:"🌿", price:349, original:449, badge:"", rating:4.7, reviews:780, desc:"Boswellia extract for long-term joint health and flexibility", tags:["Joints","Mobility","60 caps"] },
+    { id:7, name:"Triphala Digestive Capsules", category:"capsules", icon:"🌾", price:249, original:320, badge:"", rating:4.6, reviews:1560, desc:"Classical three-fruit formula for digestion, detox & immunity", tags:["Digestion","Detox","90 caps"] },
+    { id:8, name:"Brahmi Mind Clarity Capsules", category:"capsules", icon:"🧠", price:329, original:420, badge:"new", rating:4.7, reviews:560, desc:"Pure brahmi extract for focus, memory and mental clarity", tags:["Brain","Focus","60 caps"] },
+    { id:9, name:"Giloy Immunity Syrup", category:"syrup", icon:"🍯", price:199, original:260, badge:"bestseller", rating:4.8, reviews:1890, desc:"Guduchi-based syrup to strengthen immunity and fight infections", tags:["Immunity","Fever","200ml"] },
+    { id:10, name:"Triphala Digestive Syrup", category:"syrup", icon:"🌿", price:179, original:230, badge:"", rating:4.6, reviews:870, desc:"Liquid triphala for better digestion and constipation relief", tags:["Digestion","Colon","200ml"] },
+    { id:11, name:"Ashwagandha Stress Syrup", category:"syrup", icon:"🍋", price:219, original:280, badge:"", rating:4.5, reviews:640, desc:"Adaptogenic syrup for stress, anxiety and better sleep quality", tags:["Stress","Sleep","200ml"] },
+    { id:12, name:"Triphala Churna Powder", category:"powder", icon:"🌾", price:149, original:199, badge:"", rating:4.7, reviews:2340, desc:"Finest quality triphala powder for daily digestive wellness", tags:["Digestion","Daily","100g"] },
+    { id:13, name:"Ashwagandha Root Powder", category:"powder", icon:"🌰", price:179, original:240, badge:"new", rating:4.8, reviews:1120, desc:"Sun-dried, stone-ground ashwagandha root for maximum potency", tags:["Vitality","Strength","100g"] },
+    { id:14, name:"Turmeric Curcumin Powder", category:"powder", icon:"🍋", price:129, original:169, badge:"", rating:4.7, reviews:3100, desc:"High-curcumin organic turmeric with black pepper for absorption", tags:["Anti-Inflam","Golden","100g"] },
+  ];
+
+  let cart = [];
+
+  function renderProducts(filter = 'all') {
+    const grid = document.getElementById('productsGrid');
+    const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+    grid.innerHTML = filtered.map(p => `
+      <div class="product-card" data-id="${p.id}">
+        ${p.badge ? `<div class="product-badge ${p.badge === 'new' ? 'new' : p.badge === 'bestseller' ? 'bestseller' : ''}">${p.badge === 'bestseller' ? 'Bestseller' : p.badge === 'new' ? 'New' : p.badge}</div>` : ''}
+        <div class="product-img">
+          ${p.icon}
+          <button class="wishlist-btn" onclick="wishlist(${p.id}, event)" title="Add to Wishlist">🤍</button>
+        </div>
+        <div class="product-body">
+          <div class="product-category">${categoryLabel(p.category)}</div>
+          <div class="product-name">${p.name}</div>
+          <div class="rating">
+            <span class="stars">${'★'.repeat(Math.floor(p.rating))}${p.rating % 1 ? '½' : ''}</span>
+            <span>${p.rating} (${p.reviews.toLocaleString()})</span>
+          </div>
+          <div class="product-desc">${p.desc}</div>
+          <div class="product-tags">${p.tags.map(t => `<span class="product-tag">${t}</span>`).join('')}</div>
+          <div class="product-footer">
+            <div class="product-price">
+              ${p.original ? `<span class="original">₹${p.original}</span>` : ''}
+              ₹${p.price}
+            </div>
+            <button class="btn-add" onclick="addToCart(${p.id})">+ Add</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function categoryLabel(cat) {
+    return { oils: 'Pain Relief Oil', capsules: 'Herbal Capsule', syrup: 'Herbal Syrup', powder: 'Herbal Powder' }[cat] || cat;
+  }
+
+  function filterProducts(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProducts(cat);
+  }
+
+  function addToCart(id) {
+    const product = products.find(p => p.id === id);
+    const existing = cart.find(i => i.id === id);
+    if (existing) {
+      existing.qty++;
+    } else {
+      cart.push({ ...product, qty: 1 });
+    }
+    updateCartUI();
+    showToast(`${product.name.split(' ').slice(0,3).join(' ')} added to cart!`);
+  }
+
+  function removeFromCart(id) {
+    cart = cart.filter(i => i.id !== id);
+    updateCartUI();
+  }
+
+  function changeQty(id, delta) {
+    const item = cart.find(i => i.id === id);
+    if (item) {
+      item.qty += delta;
+      if (item.qty <= 0) removeFromCart(id);
+      else updateCartUI();
+    }
+  }
+
+  function updateCartUI() {
+    const count = cart.reduce((s, i) => s + i.qty, 0);
+    document.getElementById('cartCount').textContent = count;
+
+    const cartItemsEl = document.getElementById('cartItems');
+    const cartFooterEl = document.getElementById('cartFooter');
+
+    if (cart.length === 0) {
+      cartItemsEl.innerHTML = `<div class="cart-empty"><div>🛒</div><p>Your cart is empty</p><p style="font-size:12px;margin-top:6px">Add some herbal goodness!</p></div>`;
+      cartFooterEl.style.display = 'none';
+    } else {
+      cartItemsEl.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <div class="cart-item-icon">${item.icon}</div>
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">₹${item.price} each</div>
+            <div class="cart-item-qty">
+              <button class="qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
+              <span class="qty-num">${item.qty}</span>
+              <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+            </div>
+          </div>
+          <button class="cart-item-remove" onclick="removeFromCart(${item.id})">🗑</button>
+        </div>
+      `).join('');
+
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const shipping = subtotal >= 499 ? 0 : 49;
+      const total = subtotal + shipping;
+
+      document.getElementById('cartSubtotal').textContent = `₹${subtotal}`;
+      document.getElementById('cartShipping').textContent = shipping === 0 ? 'FREE' : `₹${shipping}`;
+      document.getElementById('cartTotal').textContent = `₹${total}`;
+      cartFooterEl.style.display = 'block';
+    }
+  }
+
+  function toggleCart() {
+    const overlay = document.getElementById('cartOverlay');
+    const sidebar = document.getElementById('cartSidebar');
+    overlay.classList.toggle('open');
+    sidebar.classList.toggle('open');
+  }
+
+  function wishlist(id, e) {
+    e.stopPropagation();
+    const btn = e.currentTarget;
+    btn.textContent = btn.textContent === '🤍' ? '❤' : '🤍';
+    showToast(btn.textContent === '❤' ? 'Added to wishlist!' : 'Removed from wishlist');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  function checkout() {
+    showToast('Redirecting to checkout...');
+    toggleCart();
+  }
+
+  function subscribeNewsletter() {
+    const email = document.getElementById('emailInput').value.trim();
+    if (!email || !email.includes('@')) {
+      showToast('Please enter a valid email address');
+      return;
+    }
+    document.getElementById('emailInput').value = '';
+    showToast('Subscribed! Welcome to the Talkyco family!');
+  }
+
+  // Init
+  renderProducts();
+</script>
+</body>
+</html>
