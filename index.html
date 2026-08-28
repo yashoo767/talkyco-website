@@ -248,141 +248,137 @@
     .modal-overlay.open { display: flex; }
     .sms-modal {
       background: white;
-      border-radius: 20px;
-      max-width: 480px;
+      border-radius: 16px;
+      max-width: 380px;
       width: 100%;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      animation: modalIn 0.25s ease;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.28);
+      animation: modalIn 0.22s ease;
     }
     @keyframes modalIn {
-      from { transform: scale(0.92); opacity: 0; }
+      from { transform: scale(0.94); opacity: 0; }
       to   { transform: scale(1);    opacity: 1; }
     }
-    .sms-modal-header {
-      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
-      color: white;
-      padding: 28px 28px 24px;
-      position: relative;
+    /* Close button strip at very top */
+    .modal-close-bar {
+      background: var(--green-dark);
+      display: flex;
+      justify-content: flex-end;
+      padding: 8px 12px 0;
     }
-    .sms-modal-header h2 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
-    .sms-modal-header p { font-size: 14px; opacity: 0.85; line-height: 1.5; }
     .modal-close-btn {
-      position: absolute;
-      top: 16px;
-      right: 18px;
-      background: rgba(255,255,255,0.15);
-      border: none;
+      background: rgba(255,255,255,0.18);
+      border: 1.5px solid rgba(255,255,255,0.4);
       color: white;
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      font-size: 18px;
+      font-size: 15px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-weight: 700;
+      line-height: 1;
+      transition: background 0.15s;
     }
-    .sms-modal-body { padding: 28px; }
-    .form-group { margin-bottom: 18px; }
-    .form-group label { display: block; font-size: 13px; font-weight: 600; color: #444; margin-bottom: 6px; }
+    .modal-close-btn:hover { background: rgba(255,255,255,0.35); }
+    .sms-modal-header {
+      background: var(--green-dark);
+      color: white;
+      padding: 8px 18px 14px;
+      text-align: center;
+    }
+    .sms-modal-header h2 { font-size: 17px; font-weight: 800; margin-bottom: 3px; }
+    .sms-modal-header p { font-size: 12px; opacity: 0.82; line-height: 1.4; }
+    .sms-modal-body { padding: 14px 16px 16px; }
+    .form-row { display: flex; gap: 10px; margin-bottom: 10px; }
+    .form-group { margin-bottom: 10px; flex: 1; }
+    .form-group label { display: block; font-size: 11px; font-weight: 700; color: #555; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.4px; }
     .form-group input {
       width: 100%;
-      padding: 12px 16px;
+      padding: 9px 12px;
       border: 1.5px solid #ddd;
-      border-radius: 10px;
-      font-size: 15px;
+      border-radius: 8px;
+      font-size: 13px;
       outline: none;
       transition: border-color 0.2s;
     }
     .form-group input:focus { border-color: var(--green-dark); }
     .form-group input.error { border-color: #e05a2b; }
 
-    /* Consent checkbox */
-    /* Transactional block — info only, no checkbox */
+    /* Consent blocks */
     .transactional-block {
       background: #f0f7ff;
       border: 1.5px solid #b3d4f5;
-      border-radius: 10px;
-      padding: 14px 16px;
-      margin-bottom: 14px;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
     }
-    /* Marketing block — optional checkbox */
     .marketing-block {
       background: #f8fdf7;
       border: 1.5px solid #c8e6c0;
-      border-radius: 10px;
-      padding: 14px 16px;
-      margin-bottom: 14px;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
     }
     .consent-section-label {
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 11px;
+      font-weight: 800;
       color: #333;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 10px;
+      margin-bottom: 7px;
     }
     .optional-tag {
-      background: #e0f0e0;
+      background: #ddf0dd;
       color: var(--green-dark);
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 700;
-      padding: 2px 7px;
-      border-radius: 8px;
+      padding: 1px 6px;
+      border-radius: 6px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-left: 6px;
+      letter-spacing: 0.4px;
+      margin-left: 5px;
       vertical-align: middle;
-    }
-    .optional-note {
-      font-size: 11px;
-      color: #888;
-      margin: 8px 0 0;
-      font-style: italic;
     }
     .consent-label {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       align-items: flex-start;
       cursor: pointer;
     }
     .consent-label input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      min-width: 18px;
+      width: 15px;
+      height: 15px;
+      min-width: 15px;
       margin-top: 2px;
       accent-color: var(--green-dark);
       cursor: pointer;
     }
-    .consent-text {
-      font-size: 12px;
-      color: #444;
-      line-height: 1.6;
-    }
+    .consent-text { font-size: 11px; color: #444; line-height: 1.55; }
     .consent-text a { color: var(--green-dark); text-decoration: underline; font-weight: 600; }
-    .consent-error { color: #e05a2b; font-size: 12px; margin-top: 6px; }
+    .consent-error { color: #e05a2b; font-size: 11px; margin-top: 5px; }
 
     .btn-sms-submit {
       width: 100%;
       background: var(--green-dark);
       color: white;
       border: none;
-      padding: 14px;
-      border-radius: 10px;
-      font-size: 16px;
+      padding: 11px;
+      border-radius: 8px;
+      font-size: 14px;
       font-weight: 700;
       cursor: pointer;
       transition: background 0.2s;
+      margin-bottom: 8px;
     }
     .btn-sms-submit:hover { background: var(--green-mid); }
-    .btn-sms-submit:disabled { background: #aaa; cursor: not-allowed; }
 
     .sms-fine-print {
-      margin-top: 14px;
-      font-size: 11px;
-      color: #888;
-      line-height: 1.6;
+      font-size: 10px;
+      color: #aaa;
+      line-height: 1.5;
       text-align: center;
     }
     .sms-fine-print a { color: var(--green-dark); text-decoration: underline; }
@@ -390,11 +386,11 @@
     .sms-success {
       display: none;
       text-align: center;
-      padding: 32px 28px;
+      padding: 24px 20px;
     }
-    .sms-success .success-icon { font-size: 56px; margin-bottom: 12px; }
-    .sms-success h3 { font-size: 20px; font-weight: 800; color: var(--brown); margin-bottom: 8px; }
-    .sms-success p { font-size: 14px; color: #666; line-height: 1.6; }
+    .sms-success .success-icon { font-size: 44px; margin-bottom: 10px; }
+    .sms-success h3 { font-size: 17px; font-weight: 800; color: var(--brown); margin-bottom: 6px; }
+    .sms-success p { font-size: 12px; color: #666; line-height: 1.55; }
 
     /* Toast */
     .toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--green-dark); color: white; padding: 13px 24px; border-radius: 30px; font-size: 14px; font-weight: 600; z-index: 4000; transition: transform 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
@@ -687,60 +683,71 @@
 <!-- SMS Opt-In Modal -->
 <div class="modal-overlay" id="smsModalOverlay">
   <div class="sms-modal" role="dialog" aria-modal="true" aria-labelledby="smsModalTitle">
-    <div class="sms-modal-header">
+
+    <!-- Close button at very top -->
+    <div class="modal-close-bar">
       <button class="modal-close-btn" onclick="closeSmsModal()" aria-label="Close">&#10005;</button>
+    </div>
+
+    <div class="sms-modal-header">
       <h2 id="smsModalTitle">&#128241; Stay Updated by Text</h2>
-      <p>Provide your phone number to receive communications from Talkyco.</p>
+      <p>Sign up to receive SMS communications from Talkyco.</p>
     </div>
 
     <!-- Form view -->
     <div class="sms-modal-body" id="smsFormView">
-      <div class="form-group">
-        <label for="smsFirstName">First Name <span style="color:#e05a2b">*</span></label>
-        <input type="text" id="smsFirstName" placeholder="Your first name" autocomplete="given-name" />
-      </div>
-      <div class="form-group">
-        <label for="smsPhone">Phone Number <span style="color:#e05a2b">*</span></label>
-        <input type="tel" id="smsPhone" placeholder="+1 (555) 000-0000" autocomplete="tel" />
+
+      <!-- Name + Phone on same row -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="smsFirstName">First Name <span style="color:#e05a2b">*</span></label>
+          <input type="text" id="smsFirstName" placeholder="First name" autocomplete="given-name" />
+        </div>
+        <div class="form-group">
+          <label for="smsPhone">Phone <span style="color:#e05a2b">*</span></label>
+          <input type="tel" id="smsPhone" placeholder="+1 (555) 000-0000" autocomplete="tel" />
+        </div>
       </div>
 
-      <!-- SECTION 1: Transactional / Informational — NO checkbox, disclosure only -->
-      <div class="consent-block transactional-block">
+      <!-- CHECKBOX 1: Transactional & Informational SMS -->
+      <div class="transactional-block">
         <div class="consent-section-label">&#128226; Transactional &amp; Informational SMS</div>
-        <p class="consent-text" style="margin:0">
-          By providing your phone number, you may receive transactional or informational text messages from <strong>Talkyco</strong> related to your account, orders, purchases, service requests, customer support, and delivery updates. Message frequency varies. Message and data rates may apply. Reply <strong>HELP</strong> for help and <strong>STOP</strong> to opt out of SMS messages where applicable.
-        </p>
+        <label class="consent-label">
+          <input type="checkbox" id="smsTransactionalConsent" />
+          <span class="consent-text">
+            I agree to receive transactional and informational text messages from <strong>Talkyco</strong> related to my account, orders, purchases, service requests, customer support, and delivery updates. Message frequency varies. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to opt out, <strong>HELP</strong> for help.
+          </span>
+        </label>
       </div>
 
-      <!-- SECTION 2: Marketing SMS — SEPARATE optional unchecked checkbox -->
-      <div class="consent-block marketing-block">
+      <!-- CHECKBOX 2: Marketing & Promotional SMS — separate, optional -->
+      <div class="marketing-block">
         <div class="consent-section-label">&#127381; Marketing &amp; Promotional SMS <span class="optional-tag">Optional</span></div>
         <label class="consent-label">
           <input type="checkbox" id="smsMarketingConsent" />
           <span class="consent-text">
-            I agree to receive recurring automated promotional and marketing text messages from <strong>Talkyco</strong> at the phone number provided, including offers, discounts, promotions, and product updates. <strong>Consent is not a condition of purchase.</strong> Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out and <strong>HELP</strong> for help. View our <a href="privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms &amp; Conditions</a>.
+            I agree to receive recurring automated promotional and marketing text messages from <strong>Talkyco</strong>, including offers, discounts, promotions, and product updates. <strong>Consent is not a condition of purchase.</strong> Message frequency varies. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to opt out, <strong>HELP</strong> for help. View our <a href="privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms &amp; Conditions</a>.
           </span>
         </label>
-        <p class="optional-note">This checkbox is optional. You can receive order and support messages without checking this box.</p>
       </div>
 
-      <div class="consent-error" id="formError" style="display:none;margin-bottom:12px"></div>
+      <div class="consent-error" id="formError" style="display:none;margin-bottom:8px"></div>
 
       <button class="btn-sms-submit" onclick="submitSmsForm()">Sign Me Up</button>
 
       <div class="sms-fine-print">
-        Providing your phone number is optional and not required to make a purchase, create an account, or access any Talkyco service.<br><br>
-        <a href="privacy-policy.html" target="_blank">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html" target="_blank">Terms &amp; Conditions</a>
+        Optional — not required to purchase or use any Talkyco service. &nbsp;
+        <a href="privacy-policy.html" target="_blank">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html" target="_blank">Terms</a>
       </div>
     </div>
 
-    <!-- Success view — shows different message based on marketing opt-in -->
+    <!-- Success view -->
     <div class="sms-success" id="smsSuccessView">
       <div class="success-icon">&#10003;&#65039;</div>
-      <h3 id="successHeading">You're signed up!</h3>
+      <h3 id="successHeading">You're all set!</h3>
       <p id="successBody"></p>
       <br>
-      <button class="btn-sms-submit" style="max-width:200px;margin:0 auto;display:block;" onclick="closeSmsModal()">Close</button>
+      <button class="btn-sms-submit" style="max-width:160px;margin:0 auto;display:block;padding:9px;" onclick="closeSmsModal()">Close</button>
     </div>
   </div>
 </div>
@@ -876,7 +883,8 @@
     document.getElementById('smsModalOverlay').classList.add('open');
     document.getElementById('smsFormView').style.display='block';
     document.getElementById('smsSuccessView').style.display='none';
-    // Marketing checkbox always starts unchecked — never pre-selected
+    // Both checkboxes always start unchecked — never pre-selected
+    document.getElementById('smsTransactionalConsent').checked = false;
     document.getElementById('smsMarketingConsent').checked = false;
     document.getElementById('formError').style.display='none';
     document.getElementById('smsFirstName').classList.remove('error');
@@ -897,67 +905,65 @@
   const MARKETING_CONSENT_TEXT    = 'I agree to receive recurring automated promotional and marketing text messages from Talkyco at the phone number provided, including offers, discounts, promotions, and product updates. Consent is not a condition of purchase. Message frequency varies. Message and data rates may apply. Reply STOP to opt out and HELP for help.';
 
   function submitSmsForm() {
-    const name            = document.getElementById('smsFirstName').value.trim();
-    const phone           = document.getElementById('smsPhone').value.trim();
-    const marketingOptIn  = document.getElementById('smsMarketingConsent').checked;
+    const name               = document.getElementById('smsFirstName').value.trim();
+    const phone              = document.getElementById('smsPhone').value.trim();
+    const transactionalOptIn = document.getElementById('smsTransactionalConsent').checked;
+    const marketingOptIn     = document.getElementById('smsMarketingConsent').checked;
     let valid = true;
 
-    // Reset errors
     document.getElementById('smsFirstName').classList.remove('error');
     document.getElementById('smsPhone').classList.remove('error');
-    document.getElementById('formError').style.display='none';
+    document.getElementById('formError').style.display = 'none';
 
-    // Name is required
-    if (!name) {
-      document.getElementById('smsFirstName').classList.add('error');
-      valid = false;
-    }
+    if (!name) { document.getElementById('smsFirstName').classList.add('error'); valid = false; }
 
-    // Phone is required — min 10 digits
     const digitsOnly = phone.replace(/\D/g, '');
     if (!phone || digitsOnly.length < 10) {
       document.getElementById('smsPhone').classList.add('error');
       valid = false;
     }
 
-    // Marketing checkbox is NOT required — form submits either way
-    if (!valid) {
-      document.getElementById('formError').textContent = 'Please fill in all required fields.';
+    // At least one checkbox must be checked to submit
+    if (!transactionalOptIn && !marketingOptIn) {
+      document.getElementById('formError').textContent = 'Please check at least one SMS option to sign up.';
       document.getElementById('formError').style.display = 'block';
-      return;
+      valid = false;
     }
 
-    // Build consent record
+    if (!valid) return;
+
+    // Build consent record — stored separately per type
     const consentRecord = {
-      firstName:      name,
-      phone:          phone,
-      timestamp:      new Date().toISOString(),
-      source:         window.location.href,
-      transactional:  true,   // always true — user provided phone number
-      marketing:      marketingOptIn,
+      firstName:   name,
+      phone:       phone,
+      timestamp:   new Date().toISOString(),
+      source:      window.location.href,
+      transactional: transactionalOptIn,
+      transactionalConsentVersion: transactionalOptIn ? 'v1.0-2025-08-28' : null,
+      marketing:   marketingOptIn,
       marketingConsentText:    marketingOptIn ? MARKETING_CONSENT_TEXT : null,
       marketingConsentVersion: marketingOptIn ? MARKETING_CONSENT_VERSION : null,
     };
 
-    // Store in localStorage for demo purposes
-    // In production: POST this record to your backend
+    // Persist locally — in production POST to your backend
     try {
       const existing = JSON.parse(localStorage.getItem('talkyco_sms_consents') || '[]');
       existing.push(consentRecord);
       localStorage.setItem('talkyco_sms_consents', JSON.stringify(existing));
     } catch(e) {}
 
-    // Show appropriate success message
-    document.getElementById('successHeading').textContent = marketingOptIn
-      ? 'You\'re all set!'
-      : 'Phone number saved!';
+    // Build summary for success message
+    const opted = [];
+    if (transactionalOptIn) opted.push('order & service updates');
+    if (marketingOptIn)     opted.push('promotional offers');
 
-    document.getElementById('successBody').innerHTML = marketingOptIn
-      ? 'You\'ll receive order/service texts and have opted in to marketing offers from Talkyco. Reply <strong>STOP</strong> at any time to unsubscribe from marketing texts, or <strong>HELP</strong> for assistance.'
-      : 'Your phone number has been saved for order and service communications. You did not opt in to marketing texts — you will not receive promotional SMS from Talkyco.';
+    document.getElementById('successHeading').textContent = 'You\'re signed up!';
+    document.getElementById('successBody').innerHTML =
+      'You\'ll receive <strong>' + opted.join(' and ') + '</strong> from Talkyco via SMS. ' +
+      'Reply <strong>STOP</strong> to unsubscribe at any time. Reply <strong>HELP</strong> for help.';
 
-    document.getElementById('smsFormView').style.display='none';
-    document.getElementById('smsSuccessView').style.display='block';
+    document.getElementById('smsFormView').style.display = 'none';
+    document.getElementById('smsSuccessView').style.display = 'block';
   }
 
   function showToast(msg) {
