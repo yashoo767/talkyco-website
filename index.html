@@ -709,15 +709,12 @@
         </div>
       </div>
 
-      <!-- CHECKBOX 1: Transactional & Informational SMS -->
+      <!-- Transactional disclosure — no checkbox, informational only -->
       <div class="transactional-block">
         <div class="consent-section-label">&#128226; Transactional &amp; Informational SMS</div>
-        <label class="consent-label">
-          <input type="checkbox" id="smsTransactionalConsent" />
-          <span class="consent-text">
-            I agree to receive transactional and informational text messages from <strong>Talkyco</strong> related to my account, orders, purchases, service requests, customer support, and delivery updates. Message frequency varies. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to opt out, <strong>HELP</strong> for help.
-          </span>
-        </label>
+        <p class="consent-text" style="margin:0">
+          By providing your phone number, you may receive transactional or informational text messages from <strong>Talkyco</strong> related to your account, orders, purchases, service requests, customer support, and delivery updates. Message frequency varies. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to opt out, <strong>HELP</strong> for help.
+        </p>
       </div>
 
       <!-- CHECKBOX 2: Marketing & Promotional SMS — separate, optional -->
@@ -883,8 +880,7 @@
     document.getElementById('smsModalOverlay').classList.add('open');
     document.getElementById('smsFormView').style.display='block';
     document.getElementById('smsSuccessView').style.display='none';
-    // Both checkboxes always start unchecked — never pre-selected
-    document.getElementById('smsTransactionalConsent').checked = false;
+    // Marketing checkbox always starts unchecked — never pre-selected
     document.getElementById('smsMarketingConsent').checked = false;
     document.getElementById('formError').style.display='none';
     document.getElementById('smsFirstName').classList.remove('error');
@@ -907,7 +903,7 @@
   function submitSmsForm() {
     const name               = document.getElementById('smsFirstName').value.trim();
     const phone              = document.getElementById('smsPhone').value.trim();
-    const transactionalOptIn = document.getElementById('smsTransactionalConsent').checked;
+    const transactionalOptIn = true; // implied by submitting phone number
     const marketingOptIn     = document.getElementById('smsMarketingConsent').checked;
     let valid = true;
 
@@ -920,13 +916,6 @@
     const digitsOnly = phone.replace(/\D/g, '');
     if (!phone || digitsOnly.length < 10) {
       document.getElementById('smsPhone').classList.add('error');
-      valid = false;
-    }
-
-    // At least one checkbox must be checked to submit
-    if (!transactionalOptIn && !marketingOptIn) {
-      document.getElementById('formError').textContent = 'Please check at least one SMS option to sign up.';
-      document.getElementById('formError').style.display = 'block';
       valid = false;
     }
 
